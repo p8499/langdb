@@ -5,16 +5,20 @@ insert into F1010(lsid,lsname,lsloc,lssort) values('wuu-dsi','讀書音','漢藏
 insert into F1010(lsid,lsname,lsloc,lssort) values('wuu-sha','上海言話','漢藏語系-漢語-吳語-太湖片-蘇湖嘉小片-上海言話',8000);
 
 /*users*/
-insert into F0301(usid,uspswd,usname,usst,uslsid) values('root','63a9f0ea7bb98050796b649e85481845','忍者',0,'wuu-dsi');
-insert into F0301(usid,uspswd,usname,usst,uslsid) values('13611981113','de80c271792fc78fc71f7c1e80ba6504','喬維',0,'wuu-sha');
+insert into F0301(usid,uspswd,usname,usst,uslsid,uspn) values('root','63a9f0ea7bb98050796b649e85481845','忍者',0,'wuu-dsi',10);
+insert into F0301(usid,uspswd,usname,usst,uslsid,uspn) values('13611981111','de80c271792fc78fc71f7c1e80ba6504','喬維',0,'wuu-sha',1);
+insert into F0301(usid,uspswd,usname,usst,uslsid,uspn) values('anonymous','294de3557d9d00b3d2d8a1e6aab028cf','匿名者',0,'wuu-sha',1);
 
 /*roles*/
 insert into F0310(rlid,rlname) values('manage','管理員');
 insert into F0310(rlid,rlname) values('editor','編輯');
+insert into F0310(rlid,rlname) values('anonym','公眾');
 
 /*user-roles*/
 insert into F0311(urusid,urrlid) values('root','manage');
-insert into F0311(urusid,urrlid) values('13611981113','editor');
+insert into F0311(urusid,urrlid) values('13611981111','editor');
+insert into F0311(urusid,urrlid) values('anonymous','anonym');
+
 
 /*authorities*/
 insert into F0320(auid,augrp,auname) values('auth_ra',020,'Authority ReadAll');
@@ -114,27 +118,39 @@ insert into F0321(rarlid,raauid) values('manage','sgfl_ra');
 insert into F0321(rarlid,raauid) values('manage','sgvt_wa');
 insert into F0321(rarlid,raauid) values('manage','sgvt_ra');
 insert into F0321(rarlid,raauid) values('editor','user_wi');
-insert into F0321(rarlid,raauid) values('editor','user_ri');
+insert into F0321(rarlid,raauid) values('editor','user_ra');
 insert into F0321(rarlid,raauid) values('editor','lang_ra');
 insert into F0321(rarlid,raauid) values('editor','cate_ra');
 insert into F0321(rarlid,raauid) values('editor','artc_wi');
-insert into F0321(rarlid,raauid) values('editor','artc_ra');/*modified*/
+insert into F0321(rarlid,raauid) values('editor','artc_ra');
 insert into F0321(rarlid,raauid) values('editor','sent_wi');
-insert into F0321(rarlid,raauid) values('editor','sent_ra');/*modified*/
+insert into F0321(rarlid,raauid) values('editor','sent_ra');
 insert into F0321(rarlid,raauid) values('editor','sgmt_wi');
-insert into F0321(rarlid,raauid) values('editor','sgmt_ra');/*modified*/
+insert into F0321(rarlid,raauid) values('editor','sgmt_ra');
 insert into F0321(rarlid,raauid) values('editor','post_wi');
-insert into F0321(rarlid,raauid) values('editor','post_ri');
+insert into F0321(rarlid,raauid) values('editor','post_ra');
 insert into F0321(rarlid,raauid) values('editor','pron_ra');
 insert into F0321(rarlid,raauid) values('editor','word_ra');
 insert into F0321(rarlid,raauid) values('editor','wdfl_wi');
-insert into F0321(rarlid,raauid) values('editor','wdfl_ri');
+insert into F0321(rarlid,raauid) values('editor','wdfl_ra');
 insert into F0321(rarlid,raauid) values('editor','wdvt_wi');
-insert into F0321(rarlid,raauid) values('editor','wdvt_ri');
-insert into F0321(rarlid,raauid) values('manage','sgfl_wi');
-insert into F0321(rarlid,raauid) values('manage','sgfl_ri');
-insert into F0321(rarlid,raauid) values('manage','sgvt_wi');
-insert into F0321(rarlid,raauid) values('manage','sgvt_ri');
+insert into F0321(rarlid,raauid) values('editor','wdvt_ra');
+insert into F0321(rarlid,raauid) values('editor','sgfl_wi');
+insert into F0321(rarlid,raauid) values('editor','sgfl_ra');
+insert into F0321(rarlid,raauid) values('editor','sgvt_wi');
+insert into F0321(rarlid,raauid) values('editor','sgvt_ra');
+insert into F0321(rarlid,raauid) values('anonym','lang_ra');
+insert into F0321(rarlid,raauid) values('anonym','cate_ra');
+insert into F0321(rarlid,raauid) values('anonym','artc_ra');
+insert into F0321(rarlid,raauid) values('anonym','sent_ra');
+insert into F0321(rarlid,raauid) values('anonym','sgmt_ra');
+insert into F0321(rarlid,raauid) values('anonym','post_ra');
+insert into F0321(rarlid,raauid) values('anonym','pron_ra');
+insert into F0321(rarlid,raauid) values('anonym','word_ra');
+insert into F0321(rarlid,raauid) values('anonym','wdfl_ra');
+insert into F0321(rarlid,raauid) values('anonym','wdvt_ra');
+insert into F0321(rarlid,raauid) values('anonym','sgfl_ra');
+insert into F0321(rarlid,raauid) values('anonym','sgvt_ra');
 
 /*language parameters*/
 insert into F9410(lplsid,lpsgng,lpsgch,lpsglf,lpsgcw,lpsgbw,lpsgnb,lpsgft,lpsgfc,lppong,lppoch,lppolf,lppoft,lppofc) values('wuu-dsi',5,5000,5.0,0.0,0.0,256,'segment_wuu_dsi.zip','wuu_dsi.csc',8,256,8.0,'pos_wuu_dsi.zip','wuu_dsi.hmm');
@@ -150,25 +166,25 @@ insert into f1030(cglsid,cgsi,cgpsi,cgname) values('wuu-sha',1,1,'吳語文庫')
 insert into f1030(cglsid,cgsi,cgpsi,cgname) values('wuu-sha',2,1,'月絕書');
 
 /*articles*/
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,1,'衹要有路(上海言話版)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,2,'衹要有路(test01)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,3,'衹要有路(test02)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,4,'衹要有路(test03)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,5,'衹要有路(test04)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,6,'衹要有路(test05)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,7,'衹要有路(test06)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,8,'衹要有路(test07)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,9,'衹要有路(test08)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,10,'衹要有路(test09)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,11,'衹要有路(test10)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,12,'衹要有路(test11)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,13,'衹要有路(test12)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,14,'衹要有路(test13)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,15,'衹要有路(test14)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,16,'衹要有路(test15)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
-insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt,atcgname,atcsa,atcsb,atcsc,atcsd,atcse,atcsf) values(1,17,'衹要有路(test16)','root','2016-03-01','16:00:00','',0,0,0,0,0,0);
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,1,'衹要有路(上海言話版)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,2,'衹要有路(test01)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,3,'衹要有路(test02)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,4,'衹要有路(test03)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,5,'衹要有路(test04)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,6,'衹要有路(test05)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,7,'衹要有路(test06)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,8,'衹要有路(test07)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,9,'衹要有路(test08)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,10,'衹要有路(test09)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,11,'衹要有路(test10)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,12,'衹要有路(test11)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,13,'衹要有路(test12)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,14,'衹要有路(test13)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,15,'衹要有路(test14)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,16,'衹要有路(test15)','root','2016-03-01','16:00:00');
+insert into f1110(atcgid,atsi,atname,atusid,atupdd,atupdt) values(1,17,'衹要有路(test16)','root','2016-03-01','16:00:00');
 
-/*article sentences*/
+/*sentences*/
 insert into f1120(asatid,assi,ascont,asst,asusid,asupdd,asupdt) values(1,2,'蝦兒先頭寫著我弗薄相golf，昰歇挨下去講。要我話弗薄相箇道理我好一瑲頭講87隻出來，',0,'root','2016-03-01','16:00:00');
 insert into f1120(asatid,assi,ascont,asst,asusid,asupdd,asupdt) values(1,3,'講講主要理由末：',0,'root','2016-03-01','16:00:00');
 insert into f1120(asatid,assi,ascont,asst,asusid,asupdd,asupdt) values(1,4,'一介頭弗好薄相，板要搭人家一道。',0,'root','2016-03-01','16:00:00');
@@ -234,7 +250,11 @@ insert into f1130 (trasid,trpi,trhz,trst,trusid,trupdd,trupdt) VALUES (29,'在 G
 insert into f1130 (trasid,trpi,trhz,trst,trusid,trupdd,trupdt) VALUES (30,'我 當然 回頭 渠 （ 排 物事 喫 落去 還好 跑 唻 ？ ） 。','0','root','2016-03-21','16:00:00');
 insert into f1130 (trasid,trpi,trhz,trst,trusid,trupdd,trupdt) VALUES (31,'言話 講 轉來 ， 用 自介 兩 隻 腳 一頭 跑 一頭 望 著 箇 風景 ， 交關 㜺 。 嗯 。','0','root','2016-03-21','16:00:00');*/
 
+/*segmentflow*/
+insert into f1131 (taid,taasid,tasi,tapi,tahz,tast,tausid,tacrdd,tacrdt,taupdd,taupdt) values(1,2,1,'kaon2 kaon2;tsy2 iau3;li2 yeu1 meh4;?','講講主要理由末：',1,'root','2016-11-09','16:51:12','2016-11-09','16:51:12');
 
+/*segmentvote*/
+insert into f1132 (tvid,tvtaid,tvsi,tvusid,tvpo,tvupdd,tvupdt) values(1,1,1,'13611981111',1,'2016-11-09','16:51:12');
 
 /*tagging*/
 /*insert into f1140 (tgasid,tgcont,tgst,tgusid,tgupdd,tgupdt) VALUES (1,'先頭#D 寫#V 著#著 我#P 弗#弗 薄相#V golf#N ，#U 昰歇#D 挨下去#D 講#V 。#U 要#V 我#P 話#V 弗#弗 薄相#V 箇#箇 道理#N 我#P 好#D 一瑲頭#D 講#V 87#Q 隻#M 出來#D ，#U','0','root','2016-03-21','16:00:00');
